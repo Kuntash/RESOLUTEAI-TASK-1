@@ -1,14 +1,11 @@
-import { ThemeProvider } from "@mui/material";
-import Login from "./Login";
-import theme from "./theme";
+import Login from './Login';
+import './styles/App.css';
 function App() {
-  return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
-        <Login />
-      </div>
-    </ThemeProvider>
-  );
+    return (
+        <div className='App'>
+            <Login />
+        </div>
+    );
 }
 
 export default App;

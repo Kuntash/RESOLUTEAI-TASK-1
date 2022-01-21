@@ -1,13 +1,70 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import { Button, TextField } from '@mui/material';
 import './styles/login.css';
+import theme from './theme';
+import { useTheme } from '@emotion/react';
 // TODO: Add Firebase functionality to it
-// TODO: 
+// TODO:
+
 const Login = () => {
-  return (
-      <div className = "login"> 
-          <h1>Login Page</h1>
-      </div>
-  )
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const handleLogin = (e) => {
+        e.preventDefault();
+        console.log(email);
+        console.log(password);
+    };
+    return (
+        <div className='login'>
+            {/* Left Image  */}
+            <div className='left-container'></div>
+
+            {/* Right Container: LOGIN FORM */}
+            <div className='right-container'>
+                <div className='logo-container'>
+                    <img
+                        className='logo'
+                        src='images/logo.png'
+                        alt='company logo'
+                    />
+                </div>
+
+                <h2 className='form-heading'>Enter your details to login</h2>
+
+                {/* FORM */}
+                <form onSubmit={handleLogin} action='' className='login-form'>
+                    <TextField
+                        sx={{ width: '400px' }}
+                        id='outlined-basic'
+                        label='Email Address'
+                        variant='outlined'
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <TextField
+                        sx={{ width: '400px' }}
+                        id='outlined-basic'
+                        label='Password'
+                        variant='outlined'
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <Button
+                        sx={{
+                            height: '40px',
+                            backgroundColor: '#fa2611',
+                            ':hover': {
+                                backgroundColor: '#fa2611',
+                            },
+                        }}
+                        onClick={handleLogin}
+                        variant='contained'
+                    >
+                        Login
+                    </Button>
+                </form>
+            </div>
+        </div>
+    );
 };
 
 export default Login;
