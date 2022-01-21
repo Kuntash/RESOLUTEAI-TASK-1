@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-
 import { Button, TextField } from '@mui/material';
 import './styles/login.css';
-import theme from './theme';
-import { useTheme } from '@emotion/react';
+import { auth } from './firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 // TODO: Add Firebase functionality to it
 // TODO:
 
@@ -12,8 +11,17 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const handleLogin = (e) => {
         e.preventDefault();
-        console.log(email);
-        console.log(password);
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed IN
+                const user = userCredential.user;
+                console.log('Login Successful');
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+            });
     };
     return (
         <div className='login'>
