@@ -1,10 +1,14 @@
+import { Route, Routes } from 'react-router-dom';
+import Dashboard from './Dashboard';
 import Login from './Login';
 import './styles/App.css';
+
 function App() {
     return (
-        <div className='App'>
-            <Login />
-        </div>
+        <Routes>
+            <Route path='/' element={<Login />} />
+            <Route path='/dashboard' element={<Dashboard />} />
+        </Routes>
     );
 }
 

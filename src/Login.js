@@ -3,19 +3,20 @@ import { Button, TextField } from '@mui/material';
 import './styles/login.css';
 import { auth } from './firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-// TODO: Add Firebase functionality to it
-// TODO:
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
     const handleLogin = (e) => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed IN
-                const user = userCredential.user;
-                console.log('Login Successful');
+                    
+                //Navigate to Dashboard once the login is successful
+                navigate('/dashboard');
             })
             .catch((error) => {
                 const errorCode = error.code;
