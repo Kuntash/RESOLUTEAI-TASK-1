@@ -1,11 +1,11 @@
 import React from 'react';
-import { Box } from '@mui/material';
 import { auth } from './firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import './styles/dashboard.css';
 import Navbar from './Components/Navbar';
 import Card from './Components/Card';
+import TableComponent from './Components/TableComponent';
 const Dashboard = () => {
     const navigate = useNavigate();
     onAuthStateChanged(auth, (user) => {
@@ -58,9 +58,7 @@ const Dashboard = () => {
                         secondPara={31}
                     />
                 </div>
-                <table>
-                    
-                </table>
+                <TableComponent />
             </main>
 
             <button onClick={handleSignOut}> sign out</button>
