@@ -3,6 +3,10 @@
 
 :root {
     --black: #3a3a3a;
+    --gray-white: #fbf9fa;
+    --nav-shadow: 0 8px 8px rgba(0, 0, 0, 0.16);
+    --card-shadow: 0 4px 4px rgba(0, 0, 0, 0.16);
+    --card-background: #efefef;
 }
 * {
     margin: 0;
