@@ -160,7 +160,17 @@ const TableComponent = () => {
                                 <TableCell align='center'>
                                     {row.closingDate}
                                 </TableCell>
-                                <TableCell align='center'>
+                                <TableCell
+                                    align='center'
+                                    sx={
+                                        row.status === 'overdue'
+                                            ? {
+                                                  backgroundColor: '#F62405',
+                                                  color: '#fff',
+                                              }
+                                            : null
+                                    }
+                                >
                                     {row.status}
                                 </TableCell>
                                 <TableCell align='center'>

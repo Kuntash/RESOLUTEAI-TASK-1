@@ -12,5 +12,5 @@
 
 ### Hosted website's link:
 
-**`link:`** [http://localhost:3000](http:localhost:3000)
+**`link:`** [https://resoluteai-task-1.web.app/](https://resoluteai-task-1.web.app/)
 **`Google Drive`** [https://drive](https://drive)
