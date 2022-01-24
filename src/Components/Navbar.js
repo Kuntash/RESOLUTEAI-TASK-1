@@ -1,8 +1,31 @@
-import React from 'react';
-import { Notifications } from '@mui/icons-material';
-import { AccountCircle } from '@mui/icons-material';
-import { ExpandMoreRounded } from '@mui/icons-material';
+import React, { useEffect, useRef } from 'react';
+import {
+    Notifications,
+    AccountCircle,
+    ExpandMoreRounded,
+} from '@mui/icons-material';
+import { IconButton } from '@mui/material';
+import { auth } from '../firebase';
+import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
 const Navbar = () => {
+    const navigate = useNavigate();
+    const signOutButton = useRef();
+
+    //Toggle hidden class on the signout button when expandMore button is clicked
+    const handleClick = () => {
+        console.log('hello');
+        signOutButton.current.classList.toggle('hidden');
+    };
+
+    //Signout when signout button is clicked and redirect to '/'
+    const handleSignOut = () => {
+        signOut(auth)
+            .then(() => {
+                navigate('/');
+            })
+            .catch((error) => console.log(error));
+    };
     return (
         <nav className='nav'>
             <div className='nav-left'>
@@ -33,13 +56,22 @@ const Navbar = () => {
                         fontSize: '40px',
                     }}
                 />
-                <ExpandMoreRounded
-                    sx={{
-                        color: '#fa2611',
-                        fontSize: '30px',
-                        cursor: 'pointer',
-                    }}
-                />
+                <IconButton onClick={handleClick}>
+                    <ExpandMoreRounded
+                        sx={{
+                            color: '#fa2611',
+                            fontSize: '30px',
+                            cursor: 'pointer',
+                        }}
+                    />
+                </IconButton>
+                <button
+                    ref={signOutButton}
+                    className='signout hidden'
+                    onClick={handleSignOut}
+                >
+                    sign out
+                </button>
             </div>
         </nav>
     );

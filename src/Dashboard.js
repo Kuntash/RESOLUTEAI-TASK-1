@@ -1,6 +1,6 @@
 import React from 'react';
 import { auth } from './firebase';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import './styles/dashboard.css';
 import Navbar from './Components/Navbar';
@@ -13,13 +13,7 @@ const Dashboard = () => {
         if (!user) navigate('/');
     });
 
-    const handleSignOut = () => {
-        signOut(auth)
-            .then(() => {
-                navigate('/');
-            })
-            .catch((error) => console.log(error));
-    };
+
 
     // Date Component
     const date = new Date();
@@ -61,7 +55,7 @@ const Dashboard = () => {
                 <TableComponent />
             </main>
 
-            <button onClick={handleSignOut}> sign out</button>
+  
         </div>
     );
 };

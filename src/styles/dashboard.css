@@ -19,6 +19,27 @@
     align-items: center;
 }
 
+/* Signout Button */
+
+.signout {
+    cursor: pointer;
+    font-size: 20px;
+    text-transform: uppercase;
+    background-color: #fff;
+    padding: 10px 20px;
+    position: absolute;
+    right: 0;
+    top: 10vh;
+    border: none;
+    box-shadow: var(--card-shadow);
+}
+
+.signout:hover {
+    font-weight: 600;
+}
+.hidden {
+    display: none;
+}
 /* Dashboard Main */
 
 .dashboard-main {
