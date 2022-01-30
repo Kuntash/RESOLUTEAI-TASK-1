@@ -14,7 +14,7 @@ const Login = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed IN
-                    
+
                 //Navigate to Dashboard once the login is successful
                 navigate('/dashboard');
             })
@@ -54,6 +54,7 @@ const Login = () => {
                         sx={{ width: '400px' }}
                         id='outlined-basic'
                         label='Password'
+                        type='password'
                         variant='outlined'
                         onChange={(e) => setPassword(e.target.value)}
                     />
